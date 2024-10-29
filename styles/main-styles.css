@@ -1,0 +1,188 @@
+/*
+    Замечания:
+    Тут у каждого куска бокового меню есть свои боковые маргины, хотя
+    можно было бы организовать паддинг для всей менюшки, чтобы сразу был
+    отсут для всех этих блоков. Но я решил оставить так, чтобы всё было более
+    гибким.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "TT Lakes", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #1B1C21;
+}
+
+.side-menu {
+    float: left;
+    width: 320px;
+    box-shadow: -40px 0 80px 0 #0e1850;
+}
+
+.side-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.logo {
+    margin-right: 65px;
+}
+
+.side-menu__middle-part {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px 20px 20px;
+}
+
+.side-menu__middle-part a {
+    color: #1B1C21;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+/*
+    ПОТОМ КАК ТОЛЬКО НАСТРОИШЬ ВСЕ СТИЛИ ВСЕГО ОСТАЛЬНОГО И ПРИСТУПИШЬ
+    К АНИМАЦИИ, ЗАМЕНИШЬ CHOSEN ONE И ТОМУ ПОДОБНОЕ НА СТИЛИ ПРИ ХОВЕРЕ
+
+    ХОВЕР К ПСЕВДОКЛАССУ ПИШЕТСЯ ТАК: :hover::before
+*/
+
+.side-menu__middle-part a.chosen-one {
+    color: #7E7E82;
+}
+
+.side-menu__last-part{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 215px 20px 20px;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+
+.phone-number {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.side-menu__langs {
+    margin: 20px;
+}
+
+/* ЭТА ШТУКА НАМ НУЖНА ЧТОБЫ СРАЗУ ОТ БРАУЗЕРСКИХ СТИЛЕЙ ИЗБАВИТЬСЯ */
+.side-menu__langs button {
+    background: none;
+    border: none;
+    font-family: "TT Lakes", sans-serif;
+    font-size: 16px;
+    color: #1B1C21;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+/* ОТСЮДА БУДУТ НАЧИНАТЬСЯ АНИМАЦИИ, ХОВЕРЫ И ПРОЧЕЕ */
+
+/* СНАЧАЛА НАХУЯРЮ СТИЛИ ДЛЯ РОЗОВЫХ КНОПОК, ОНИ ТУТ ОДИНАКОВЫЕ И ПРОСТЫЕ ПО СОСТАВУ */
+.close-button rect {
+    transition: fill 0.2s ease-in-out;
+}
+
+.close-button:hover rect {
+    fill: #ff89a6;
+}
+
+.close-button:active rect {
+    fill: #c5305a;
+}
+
+
+.search-button rect {
+    transition: fill 0.2s ease-in-out;
+}
+
+.search-button:hover rect {
+    fill: #ff89a6;
+}
+
+.search-button:active rect {
+    fill: #c5305a;
+}
+
+
+.call-button rect {
+    transition: fill 0.2s ease-in-out;
+}
+
+.call-button:hover rect {
+    fill: #ff89a6;
+}
+
+.call-button:active rect {
+    fill: #c5305a;
+}
+
+
+.message-button rect {
+    transition: fill 0.2s ease-in-out;
+}
+
+.message-button:hover rect {
+    fill: #ff89a6;
+}
+
+.message-button:active rect {
+    fill: #c5305a;
+}
+
+
+.account-button rect {
+    transition: fill 0.2s ease-in-out;
+}
+
+.account-button:hover rect {
+    fill: #ff89a6;
+}
+
+.account-button:active rect {
+    fill: #c5305a;
+}
+
+/* ТУТ БУДУТ СТИЛИ ДЛЯ СПИСКА С ПУНКТАМИ */
+
+.side-menu__middle-part a:hover {
+    color: #7E7E82;
+}
+
+.side-menu__middle-part a::before { /* ЭТО ВОТ ЭТОТ ГОЛУБОЙ АППЕНДИКС */
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    transform: translateY(-5px) translateX(-45px);
+    border-radius: 20%;
+    background-color: #41F6D7;
+    transition: transform 0.07s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.side-menu__middle-part a:hover::before {
+    visibility: visible;
+    transform: translateY(-5px) translateX(-40px);
+}
+
+/* ВЫБОР ЯЗЫКА */
+
+.side-menu__langs button:hover {
+    color: #7E7E82;
+    cursor: pointer;
+}
